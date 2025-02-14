@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM in JS</title>
+</head>
+<body style="background: #000; color: aliceblue;">
+    <div class="parentweek">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+    <ul class = "language">
+        <li>JS</li>
+        <li> ADDING Languaages by function in script </li>
+    </ul>
+</body>
+<script>
+    const parent = document.querySelector('.parentweek')
+    console.log(parent);
+    console.log(parent.children);
+    console.log(parent.children[1]);
+    console.log(parent.children[1].innerHTML);
+    for(let i=0; i<parent.children.length;i++){
+        console.log(parent.children[i]);
+    }
+    parent.children[1].style.color = "red";
+    console.log("Now I am printing for other things")
+    
+    console.log(parent.firstElementChild);
+    console.log(parent.lastElementChild);
+    const dayOne = document.querySelector('.day')
+    console.log(dayOne);
+    console.log(dayOne.parentElement);
+    console.log(dayOne.nextElementSibling);
+    console.log("NODES: ",parent.childNodes);
+
+    ////////////////////////////////////////////////////////
+    //MAKING DIV OR H1 OR ANYOTHER THING IN <script> in HTML and then append it in body 
+
+    const div = document.createElement('div')
+    console.log(div);
+    div.className = "MyName";
+    div.id = Math.random *10;
+    div.setAttribute("title", "generated title");
+    div.style.backgroundColor= "green"
+    div.innerText = "APPENDING THE INNER TEXT BY MAKING NEW DIV IN <script> in HTML "
+    const addText = document.createTextNode("THAT is my JS code")
+    div.appendChild(addText)
+
+    document.body.appendChild(div);
+
+
+    ///////////////////////////////////////////////////////////////
+    //Edit and remove element in DOM with the help of functions in <script>
+    //here we are using ul and its lis written in line 15 of our code
+    function addLanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+
+    addLanguage("I added pyhton language")
+    addLanguage("CPP")
+
+    function addLangOptimized(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li)
+    }
+    addLangOptimized("HTML lang")
+
+    //edit
+    const secondlang = document.querySelector("li:nth-child(2)")
+    console.log(secondlang);
+    
+    //secondlang.innerHTML = "NodeJS updated";
+    const newli = document.createElement('li')
+    newli.textContent = "NodeJS updated"
+    secondlang.replaceWith(newli)
+
+    //EDIT
+    const firstlang = document.querySelector("li:first-child")
+    firstlang.outerHTML = '<li>TypeScript</li>'
+
+    //remove
+    const lastlang = document.querySelector('li:last-child')
+    lastlang.remove()
+</script>
+</html>
