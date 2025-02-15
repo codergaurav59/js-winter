@@ -1,0 +1,15 @@
+DEFAULT JAVA SCRIPT -> SYNCHRONOUS & SINGLE THREADEED
+// Execution Context => Execute one line of code at a time
+CALL STACK & MEMORY HEAP
+//Each operation waits for the last one to complete before executing
+
+BLOCKING CODE => SYNCRONOUS CODE (READ FILE SYNC)
+NON BOCKING CODE => ASYNCHRONOUS CODE (READ FILE ASYNC)
+
+
+//JS ENGINE                       WEB API
+(MEMORY HEAP + CALL STACK ->call-> DOM API,
+                                   Set timeout,
+                                   Set interval -> Register call back ->task Queue -> CALL STACK(JS ENGINE)
+                                   
+                          ->call-> fetch()  - PROMISE -> High Priority Queue -> CALL STACK(JS ENGINE)

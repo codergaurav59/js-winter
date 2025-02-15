@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color:antiquewhite">
+    <h1> 2 PROJECT ASYNC IN JS </h1>
+    <button id ="start"> START</button>
+    <button id = "stop"> STOP </button>
+</body>
+<script>
+    //function for saying date
+    const sayDate = function(str){
+        console.log(str,Date.now());
+    }
+
+    //making interval by clicking in the start button
+    let IntervalIDmaid
+    document.querySelector('#start').addEventListener('click',function(){
+        IntervalIDmaid = setInterval(sayDate,2000,"hi")
+    })
+
+    //clearing interval by clinking the stop button
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearInterval(IntervalIDmaid)
+        console.log("STOOPED THE INTERVAL");
+    })
+    clearInterval(IntervalIDmaid)
+    
+    
+</script>
+</html>
